@@ -1,0 +1,9 @@
+[user]
+	name = Toni Reina
+	email = areina0@gmail.com
+[core]
+	editor = emacsclient
+[init]
+	defaultBranch = main
+[credential]
+	helper = /usr/local/share/gcm-core/git-credential-manager-core
