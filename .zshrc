@@ -22,18 +22,25 @@ function plugin-load {
 }
 
 plugins=(
-    sindresorhus/pure
-    zsh-users/zsh-autosuggestions
+    sindresorhus/pure # Pretty, minimal and fast ZSH prompt.
+    zsh-users/zsh-autosuggestions # It suggests commands as you type based on history and completions.
+    zsh-users/zsh-completions # Additional completion definitions for Zsh.
+    zsh-users/zsh-syntax-highlighting # Syntax highlighting for the shell.
+    Tarrasch/zsh-bd # Quickly go back to a specific parent directory.
 )
 
 plugin-load $plugins
 
+bindkey '^ ' autosuggest-accept # zsh-autosuggestions: ctrl + space to accept the current suggestion
+
 source ~/.zsh_aliases
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# ZSH history config
+setopt HIST_SAVE_NO_DUPS # Do not write a duplicate event to the history file.
+setopt HIST_FIND_NO_DUPS # Do not find duplicate command when searching
+setopt INC_APPEND_HISTORY # Commands are added immediately to the history, instead of at shell termination
+setopt EXTENDED_HISTORY # History includes the timestamps when the commands where executed ($ history -E)
 
-export ANDROID_SDK_ROOT=$HOME/Library/Android/Sdk
-export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
-export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+autoload -U compinit; compinit
