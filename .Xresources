@@ -51,16 +51,17 @@
 !! URxvt Appearance
 
 ! Fonts
-*.font: xft:Fira Code:size=11,style=Regular
-*.boldFont: xft:Fira Code:size=11,style=Bold
-*.italicFont: xft:Fira Code:size=11,style=Italic
-*.boldItalicFont: xft:Fira Code:size=11,style=Bold Italic
+URxvt.font: xft:Fira Code:size=11,style=Regular
+URxvt.boldFont: xft:Fira Code:size=11,style=Bold
+URxvt.italicFont: xft:Fira Code:size=11,style=Italic
+URxvt.boldItalicFont: xft:Fira Code:size=11,style=Bold Italic
 
 ! URxvt options
-*.scrollBar:          false
-*.jumpScroll:         true
-*.urgentOnBell:       true
+URxvt.scrollBar:          false
+URxvt.jumpScroll:         true
+URxvt.urgentOnBell:       true
 
+URxvt.internalBorder: 4
 !! Plugins
 *.perl-ext-common: default,font-size
 
@@ -69,3 +70,10 @@
 *.keysym.C-Down:   font-size:decrease
 *.keysym.C-equal:  font-size:reset
 *.keysym.C-slash:  font-size:show
+
+! Disable keycap picture insert (ctrl + shift conflict)
+URxvt.iso14755:    false
+URxvt.iso14755_52: false
+
+URxvt.keysym.Control-Shift-C: eval:selection_to_clipboard
+URxvt.keysym.Control-Shift-V: eval:paste_clipboard
