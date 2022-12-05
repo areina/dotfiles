@@ -13,3 +13,5 @@ export ANDROID_SDK_ROOT=$HOME/Library/Android/Sdk
 # Path
 export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+
+export PURE_PROMPT_SYMBOL="»"
